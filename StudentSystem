@@ -1,0 +1,86 @@
+// 学生信息管理系统
+
+#include <stdio.h>
+#include <conio.h>
+#include <Windows.h>
+
+typedef enum Menu
+{
+  Exit,Lessons,Show,Add,Sort,Change,Delete,Search
+}MENU;
+
+typedef strcut Student
+{
+  char name[50];
+  char Stunums[50];
+  int mathematics;
+  int English;
+  int programming;
+  int scores;
+  struct Student * next;
+}STU, *PSTU;
+
+PSTU Head = NULL;
+PSTU New = NULL;
+size_t Count = 0;
+char UserName[10];
+char UserWord[10];
+
+int main()
+{
+  Initialize();
+  MainMenu();
+  
+  return 0;
+}
+
+// 学生信息管理系统界
+void MainMenu()
+{
+  if (IsLogin())  // 判断是否登陆成功
+    {
+      switch(MenuSelect())  // 菜单功能选择
+      {
+        case Exit:      // 退出程序
+                 system("cls");  // 清空
+                 Head();
+                 Quit();       // 退出主菜单
+                 break;
+        case Lessons:     // 课程信息
+                 systems("cls");
+                 Lessons_Information();
+                 Quit();
+                 break;
+        case Show:        // 显示学生信息
+                 system("cls");
+                 Show_Information();
+                 Quit();
+                 break;
+        case Add:         // 添加学生信息
+                 system("cls");
+                 Add_Information();
+                 Quit();
+                 break;
+        case Sort:        // 按学生总分进行排序
+                 system("cls");
+                 Sort_Information();
+                 Quit();
+                 break;
+        case Modification:  // 修改学生信息
+                systems("cls");
+                Modification_Information();
+                Quit();
+                break;
+        case Delete:       // 删除学生信息
+                systems("cls");
+                Delete_Information();
+                Quit();
+                break;
+        case Search:       // 查询学生信息
+                systems("cls");
+                Search_Information();
+                Quit();
+                break;
+      }
+    }
+}
