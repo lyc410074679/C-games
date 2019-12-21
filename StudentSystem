@@ -28,6 +28,10 @@ size_t Count = 0;
 char UserName[10];
 char UserWord[10];
 
+void MainMenu();
+int Islogin();
+void login();
+
 int main()
 {
   Initialize();
@@ -36,7 +40,7 @@ int main()
   return 0;
 }
 
-// 学生信息管理系统界
+// 学生信息管理系统菜单界面
 void MainMenu()
 {
   if (IsLogin())  // 判断是否登陆成功
@@ -87,6 +91,7 @@ void MainMenu()
     }
 }
 
+// 判断是否登陆成功
 int Islogin()
 {
   int i;
@@ -114,4 +119,43 @@ int Islogin()
     Login();
   }
   return 1;
+}
+
+// 花里胡哨登陆界面
+void Login()
+{
+  char Background[] = {"* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * "};
+  int i;
+  StuManage();
+  for (i = 0; i < strlen(Background); i++)
+  {
+    printf("%c", Background[i]);
+    Sleep(10);
+  }
+  printf("\n\n\t\t\t\t\t\t请输入您的账号密码:\n\n\n\n\t\t\t\t\t\t账号:");
+  gets(UserName);
+  printf("\n\n\t\t\t\t\t\t:密码:");
+  gets(UserWord);
+}
+
+void Initialization()
+{
+  int i;
+  char design[] = {"您即将进入学生管理系统......"};
+  Head = (PSTU)malloc(sizeof(STU));
+  Head->Next = NULL;
+  SetConsoleTitle("学生信息管理系统(管理员)");
+  system("color f0");
+  printf("欢迎使用本系统!\n");
+  printf("\n\n\n\n\n\n\n\n\t\t\t\t\t");
+  
+  for (i = 0; i < strlen(design); i++)
+  {
+    printf("%c", design[i]);
+    Sleep(10);
+  }
+  system("ClS");
+  StuManage();
+  system("cls");
+  Login();
 }
