@@ -31,6 +31,9 @@ char UserWord[10];
 void MainMenu();
 int Islogin();
 void login();
+void StudentManage0();
+void StudentManag1();
+void Login();
 
 int main()
 {
@@ -138,7 +141,7 @@ void Login()
   gets(UserWord);
 }
 
-void Initialization()
+void Initialization() // 页面初始化
 {
   int i;
   char design[] = {"您即将进入学生管理系统......"};
@@ -158,4 +161,22 @@ void Initialization()
   StuManage();
   system("cls");
   Login();
+}
+
+void StudentManage1() // 花里胡哨
+{
+	printf("\n");
+	printf("\t\t\t\t\t╭  % ╮                           ╭ ```╮  \n");
+	printf("\t\t\t\t\t(@^o^@) 学生信息管理系统   管理端(⌒:⌒)\n");
+	printf("\t\t\t\t\t(~):(~)                          (~)v(~) \n");
+	printf("\n\n\n");
+}
+
+void StudentManag0()
+{
+	printf("\n");
+	printf("\t\t\t\t\t╭  % ╮                   ╭ ```╮  \n");
+	printf("\t\t\t\t\t(@^o^@) 学生信息管理系统 (⌒:⌒)\n");
+	printf("\t\t\t\t\t(~):(~)                  (~)v(~) \n");
+	printf("\n\n\n");
 }
